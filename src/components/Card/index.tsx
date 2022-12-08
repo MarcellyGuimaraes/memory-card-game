@@ -8,7 +8,7 @@ export interface CardProps {
 }
 
 export function Card({ flipped = false, back, handleClick, id }: CardProps) {
-    const cardClassnames = ['card_content']
+    const cardClassnames = ['card_content relative w-full']
     flipped && cardClassnames.push('card_content-flipped')
 
     const handleClickFn = (id: string) => {

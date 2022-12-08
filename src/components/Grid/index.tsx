@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { duplicateRegenerateSortArray } from "../../utils/card-utils";
 import { Card, CardProps } from "../Card";
-import './styles.css'
 
 export interface GridProps {
     cards: CardProps[];
@@ -23,7 +22,7 @@ export function Grid({ cards }: GridProps) {
 
         if (finished) {
             const reset = confirm(
-                `You won with ${moves} moves and ${matches} matches. Click 'Ok' to start again!`,
+                `Você ganhou com ${moves} movimentos e ${matches} combinações. Clique em 'Ok' para começar de novo!`,
             );
 
             if (reset) {
@@ -91,10 +90,10 @@ export function Grid({ cards }: GridProps) {
     return (
         <>
             <div className="text">
-                <h1>Jogo da memória <button onClick={handleReset}>Reiniciar</button></h1>
+                <h1 className="mb-10">Jogo da memória</h1>
             </div>
-            <p>Movimentos: {moves} || Combinações: {matches}</p>
-            <div className="grid">
+            <p className="font-mono text-center text-2xl text-gray-800">Movimentos: {moves} || Combinações: {matches} ||  <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={handleReset}>Reiniciar</button></p>
+            <div className="grid grid-cols-4 gap-2 mt-10">
                 {stCard.map(card => (
                     <Card {...card} key={card.id} handleClick={handleClick} />
                 ))}
